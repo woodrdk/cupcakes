@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cupcake Fundraiser Order Form</title>
+    <title>Cupcake Fundraiser Order Confirmation</title>
     <!-- FAVICON -->
     <link rel="icon" type="image/jpg" href="images/cupcake.png">
     <!-- CSS -->
@@ -18,33 +18,11 @@
         <hr class="my-2">
     </div>
     <div class="container">
-        <div>
-            <form  action="orderConfirmation.php" method="post">
-                <fieldset class="form-group">
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="name">
-                            <span class="font-weight-bold">Your Name</span>
-                            <span class="req">*</span>
-                            <span class="err" id="err-fName"> Please enter a first name </span>
-                            </label>
-                            <input type="text" class="form-control" id="name" name="name" value="Please input your name">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            Cupcake Flavors <br>
-                            // use php code here to insert from an assoc array the contents of the check box
-                        </div>
-                    </div>
-                </fieldset>
-
-
-                <br><br>
-                <button id="submit" type="submit" class="btn btn-primary "> Order</button>
-<!--                <input type="submit" value="Order" class="btn btn-primary">-->
-            </form>
-        </div>
+ <?php
+    //var_dump($_POST);
+    $name = $_POST['name'];
+    
+    ?>
     </div>
 
 </div>

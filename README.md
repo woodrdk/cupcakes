@@ -1,2 +1,2 @@
 # cupcakes
-PHP Review Assignment: Cupcake fundraiser webpage
+PHP Review Assignment: Cupcake fundraiser web page
