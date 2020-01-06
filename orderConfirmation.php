@@ -18,10 +18,33 @@
         <hr class="my-2">
     </div>
     <div class="container">
- <?php
-    //var_dump($_POST);
-    $name = $_POST['name'];
-    
+    <?php
+        //var_dump($_POST);
+        $name = $_POST['name'];
+        $order = array(
+                 "grasshopper" => "The Grasshopper",
+                 "maple" => "Whiskey Maple Bacon",
+                 "carrot" => "Carrot Walnut",
+                 "caramel" => "Salted Caramel Cupcake",
+                 "velvet" => "Red Velvet",
+                 "lemon" => "Lemon Drop",
+                 "tiramisu" => "Tiramisu"
+              );
+
+        echo "Thank you, ".$name.", for your order!<br>";
+        echo "Order Summary:<br>";
+        // write loop to show whats in array that was choosen for cupcake order
+        foreach($order as $key=>$value){
+            echo "<input type='checkbox' name='$key' value='$key'>$value<br>";
+        }
+        $total = 0.00;
+        $cost = 3.50;
+        $total = $cost * sizeof($order);
+
+        echo "Order Total: $".$total;
+
+
+
     ?>
     </div>
 
