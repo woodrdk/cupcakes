@@ -7,8 +7,10 @@
   * This is a webpage to fake order some cupcakes. User can input their name and click on the flavors
   * that they want to order and will show a confirmation page of the order and the cost of the order
   * when they submit the order.
+  * http://rwood.greenriverdev.com/328/cupcakes/index.php
+  * https://github.com/woodrdk/cupcakes
   */
-
+include("data.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,27 +33,24 @@
     </div>
     <div class="container">
     <?php
-        //var_dump($_POST);
+        var_dump($_POST);
         $name = $_POST['name'];
-        $order = array(
-                 "grasshopper" => "The Grasshopper",
-                 "maple" => "Whiskey Maple Bacon",
-                 "carrot" => "Carrot Walnut",
-                 "caramel" => "Salted Caramel Cupcake",
-                 "velvet" => "Red Velvet",
-                 "lemon" => "Lemon Drop",
-                 "tiramisu" => "Tiramisu"
-              );
+        $cupcakes = $_POST['cupcakes'];
 
         echo "Thank you, ".$name.", for your order!<br>";
         echo "Order Summary:<br>";
+        echo "<ul>";
         // write loop to show whats in array that was choosen for cupcake order
         foreach($order as $key=>$value){
-            echo "<input type='checkbox' name='$key' value='$key'>$value<br>";
+            if(in_array($key, $cupcakes)){
+              echo "<li>$value</li>";
+            }
+            //echo "<input type='checkbox' name='$key' value='$key'>$value<br>";
         }
+        echo "</ul>";
         $total = 0.00;
         $cost = 3.50;
-        $total = $cost * sizeof($order);
+        $total = $cost * sizeof($cupcakes);
 
         echo "Order Total: $".$total;
 
