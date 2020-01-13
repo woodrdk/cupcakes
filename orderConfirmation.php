@@ -51,7 +51,7 @@ include("data.php")
         $total = 0.00;
         $cost = 3.50;
         $total = $cost * sizeof($cupcakes);
-
+        $total = number_format((float)$total, 2, '.', '');
         echo "Order Total: $".$total;
 
 
