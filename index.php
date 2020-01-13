@@ -1,3 +1,9 @@
+<?php
+
+include("data.php")
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,15 +41,7 @@
                         <div class="form-group">
                             <span class="font-weight-bold">Cupcake Flavors:</span> <br>
                             <?php
-                            $order = array(
-                                "grasshopper" => "The Grasshopper",
-                                "maple" => "Whiskey Maple Bacon",
-                                "carrot" => "Carrot Walnut",
-                                "caramel" => "Salted Caramel Cupcake",
-                                "velvet" => "Red Velvet",
-                                "lemon" => "Lemon Drop",
-                                "tiramisu" => "Tiramisu"
-                            );
+
                             foreach($order as $key=>$value){
                                 echo "<input type='checkbox' name='$key' value='$key'> $value<br>";
                             }
@@ -52,8 +50,6 @@
                     </div>
                 </fieldset>
 
-
-                <br><br>
                 <button id="submit" type="submit" class="btn btn-primary "> Order</button>
 <!--                <input type="submit" value="Order" class="btn btn-primary">-->
             </form>
