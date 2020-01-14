@@ -10,7 +10,9 @@
   * https://github.com/woodrdk/cupcakes
   */
 // code to include the data.php file so that the assoc array of the cupcake flavors is available
-include("data.php")
+include("data.php");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +42,11 @@ include("data.php")
                         <div class="form-group">
                             <label for="name">
                             <span class="font-weight-bold">Your Name</span>
-                            <span class="req">*</span>
-                            <span class="err" id="err-name"> Please enter a first name </span>
+                           <!-- <span class="req">*</span>
+                            <span class="err" id="err-name"> Please enter a first name </span>-->
                             </label>
-                            <input type="text" class="form-control" id="name" name="name" value="Please input your name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Please input your name">
+
                         </div>
                     </div>
                     <div class="row">
@@ -60,6 +63,7 @@ include("data.php")
                                 <label class='form-check-label' for='$key'>
                                 $value
                                 </label>
+                             
                             </div>";
                             }
                             ?>

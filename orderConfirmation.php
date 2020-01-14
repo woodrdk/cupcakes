@@ -36,20 +36,32 @@
     <?php
     // php code section
        // var_dump($_POST); // for testing what gets sent from the order form
-        $name = $_POST['name']; // the user name
+        if(isset($_POST["name"]) && trim($_POST["name"]) != "") {
+            $name = trim($_POST["name"]);
+            $message = "Thank you, ".$name.", for your order!<br>";
+        }
+        else { // name field was not set
+            $message = "Please insert a name for your order<br>";
+        }
+
         $cupcakes = $_POST['cupcakes']; // the cupcakes chosen by the user
         // prints out thank you message to the user
-        echo "Thank you, ".$name.", for your order!<br>";
-        echo "Order Summary:<br>";
-        echo "<ul>";
-        // write loop to show whats in array that was choosen for cupcake order
-        foreach($order as $key=>$value){
-            if(in_array($key, $cupcakes)){
-              echo "<li>$value</li>";
+        echo $message;
+            //var_dump($order);
+        if(sizeof($cupcakes) > 0){
+            foreach($order as $key=>$value){
+                foreach($cupcakes as $cups){
+                    if($cups == $key){
+                        echo  "<li>$value</li>";
+                    }
+                }
             }
-            //echo "<input type='checkbox' name='$key' value='$key'>$value<br>";
         }
-        echo "</ul>";
+        else{
+            echo "Please select a valid cupcake<br>";
+        }
+
+
         // total variable initialization
         $total = 0.00;
         // cost of each cupcake
@@ -59,7 +71,7 @@
         // formats the cost to $XX.XX
         $total = number_format((float)$total, 2, '.', '');
         // prints out the order total
-        echo "Order Total: $".$total;
+        echo "<br>Order Total: $".$total;
     ?>
     </div>
 </div>
