@@ -1,17 +1,17 @@
 <?php
-
-/*
-  * Rob Wood
-  * 1/13/2020
-  * This is a PHP Review Assignment: Cupcakes
-  * This is a webpage to fake order some cupcakes. User can input their name and click on the flavors
-  * that they want to order and will show a confirmation page of the order and the cost of the order
-  * when they submit the order.
-  * http://rwood.greenriverdev.com/328/cupcakes/index.php
-  * https://github.com/woodrdk/cupcakes
-  */
-include("data.php")
+   /*
+   * Rob Wood
+   * 1/13/2020
+   * This is a PHP Review Assignment: Cupcakes
+   * This is a webpage to fake order some cupcakes. User can input their name and click on the flavors
+   * that they want to order and will show a confirmation page of the order and the cost of the order
+   * when they submit the order.
+   * http://rwood.greenriverdev.com/328/cupcakes/index.php
+   * https://github.com/woodrdk/cupcakes
+   */
+    include("data.php")
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,11 +32,13 @@ include("data.php")
         <hr class="my-2">
     </div>
     <div class="container">
-    <?php
-        var_dump($_POST);
-        $name = $_POST['name'];
-        $cupcakes = $_POST['cupcakes'];
 
+    <?php
+    // php code section
+       // var_dump($_POST); // for testing what gets sent from the order form
+        $name = $_POST['name']; // the user name
+        $cupcakes = $_POST['cupcakes']; // the cupcakes chosen by the user
+        // prints out thank you message to the user
         echo "Thank you, ".$name.", for your order!<br>";
         echo "Order Summary:<br>";
         echo "<ul>";
@@ -48,17 +50,18 @@ include("data.php")
             //echo "<input type='checkbox' name='$key' value='$key'>$value<br>";
         }
         echo "</ul>";
+        // total variable initialization
         $total = 0.00;
+        // cost of each cupcake
         $cost = 3.50;
+        // calculates the total cost
         $total = $cost * sizeof($cupcakes);
+        // formats the cost to $XX.XX
         $total = number_format((float)$total, 2, '.', '');
+        // prints out the order total
         echo "Order Total: $".$total;
-
-
-
     ?>
     </div>
-
 </div>
 
 <!-- jQuery first, then Popper, then Bootstrap -->
