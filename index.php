@@ -6,9 +6,11 @@
   * This is a webpage to fake order some cupcakes. User can input their name and click on the flavors
   * that they want to order and will show a confirmation page of the order and the cost of the order
   * when they submit the order.
+  * http://rwood.greenriverdev.com/328/cupcakes/index.php
+  * https://github.com/woodrdk/cupcakes
   */
+// code to include the data.php file so that the assoc array of the cupcake flavors is available
 include("data.php")
-
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +50,17 @@ include("data.php")
                         <div class="form-group">
                             <span class="font-weight-bold">Cupcake Flavors:</span> <br>
                             <?php
-
+                            // php code section
+                            // foreach loop to print out in a checkbox format the cupcake flavors from the
+                            // associative array in data.php
                             foreach($order as $key=>$value){
-                                echo "<input type='checkbox' name='$key' value='$key'> $value<br>";
+                                // echo "<input type='checkbox' name='$key' value='$key'> $value<br>";
+                                echo "<div class='form-check'>
+                                <input class='form-check-input' type='checkbox' value='$key' id='$key' name='cupcakes[]' >
+                                <label class='form-check-label' for='$key'>
+                                $value
+                                </label>
+                            </div>";
                             }
                             ?>
                         </div>
@@ -62,7 +72,6 @@ include("data.php")
             </form>
         </div>
     </div>
-
 </div>
 
 <!-- jQuery first, then Popper, then Bootstrap -->
